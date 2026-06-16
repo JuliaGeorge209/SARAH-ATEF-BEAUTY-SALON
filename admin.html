@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✦ SARAH ATEF SALON — OWNER DASHBOARD ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Admin custom styles (keeps it fully modular and beautiful matching the salon brand) */
+    :root {
+      --hot-pink: #e91e8c;
+      --hot-pink-light: #f06ab2;
+      --baby-pink: #ffd6e8;
+      --pink-blush: #fff0f7;
+      --white: #ffffff;
+      --dark: #1a0a14;
+      --dark-mid: #2d1525;
+      --gray: #7a6570;
+      --bg-main: #fdf8fc;
+      --bg-card: #ffffff;
+      --text-main: #1a0a14;
+      --border-color: rgba(255,180,209,0.3);
+    }
+    
+    [data-theme="dark"] {
+      --bg-main: #120810;
+      --bg-card: #1e0f1a;
+      --text-main: #fce7f3;
+      --dark: #fce7f3;
+      --gray: #b89aaa;
+      --border-color: rgba(233,30,140,0.2);
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-area h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--hot-pink);
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .logo-area p {
+      margin: 3px 0 0 0;
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+
+    /* PIN Lock Screen */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 10, 20, 0.85);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .login-box {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 2px solid var(--baby-pink);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(233, 30, 140, 0.25);
+    }
+
+    .login-box h2 {
+      color: var(--hot-pink);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .login-box p {
+      color: var(--gray);
+      font-size: 0.82rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.85rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 1rem;
+      text-align: center;
+      outline: none;
+      background: var(--bg-main);
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+    }
+
+    .form-input:focus {
+      border-color: var(--hot-pink);
+      background: var(--bg-card);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #e91e8c 0%, #f06ab2 100%);
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(233, 30, 140, 0.25);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Content Area */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .stat-card h3 {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--hot-pink);
+    }
+
+    /* Table & Bookings View */
+    .table-container {
+      background: var(--bg-card);
+      border-radius: var(--radius, 16px);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      overflow-x: auto;
+      margin-bottom: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+    }
+
+    th {
+      background-color: var(--pink-blush);
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--hot-pink);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Status Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .badge-pending {
+      background: rgba(245, 158, 11, 0.12);
+      color: #df8a00;
+    }
+
+    .badge-confirmed {
+      background: rgba(16, 185, 129, 0.12);
+      color: #0d8351;
+    }
+
+    .badge-canceled {
+      background: rgba(239, 68, 68, 0.12);
+      color: #cc2a2a;
+    }
+
+    /* Action Buttons */
+    .action-btn-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-action {
+      border: none;
+      border-radius: 6px;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .btn-confirm {
+      background-color: #10b981;
+      color: white;
+    }
+
+    .btn-confirm:hover {
+      background-color: #059669;
+    }
+
+    .btn-cancel {
+      background-color: #ef4444;
+      color: white;
+    }
+
+    .btn-cancel:hover {
+      background-color: #dc2626;
+    }
+
+    .btn-search {
+      padding: 0.5rem 1rem;
+      background: var(--hot-pink);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .btn-toggle-lang {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Empty State */
+    .empty-state {
+      padding: 3rem;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .phone-link {
+      color: var(--hot-pink);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .phone-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      .action-btn-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOCK LOGIN SCREEN -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <h2 id="loginTitle">✦ صالون سارة عاطف ✦</h2>
+      <p id="loginSubtitle">الرجاء إدخال رمز الأمان للوصول لجدول الحجوزات</p>
+      
+      <form id="loginForm">
+        <input type="password" id="pinInput" class="form-input" placeholder="••••" maxlength="8" required autofocus />
+        <button type="submit" class="btn-submit" id="loginBtn">دخول لوحة التحكم</button>
+      </form>
+      <div id="loginError" style="margin-top:10px; color:#ef4444; font-size:0.8rem; display:none; font-weight:bold;">رمز الأمان خاطئ!</div>
+    </div>
+  </div>
+
+  <!-- CONSOLE MAIN WRAPPER -->
+  <div class="admin-container" id="adminContent" style="display: none;">
+    <header>
+      <div class="logo-area">
+        <h1 id="dashTitle">✦ SARAH ATEF DASHBOARD ✦</h1>
+        <p id="dashSub">لوحة الإشراف وإدارة حجوزات العملاء الفورية</p>
+      </div>
+
+      <div style="display: flex; gap: 0.8rem; align-items: center;">
+        <button class="btn-toggle-lang" id="adminLangToggle">English</button>
+        <button class="btn-toggle-lang" id="adminThemeToggle" title="Theme Mode">🌓</button>
+      </div>
+    </header>
+
+    <!-- STATISTICS METRIC CARD CARDS -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <h3 id="statTotalTitle">إجمالي الحجوزات</h3>
+        <div class="value" id="statTotal">0</div>
+      </div>
+      <div class="stat-card">
+        <h3 id="statPendingTitle">تنتظر المراجعة</h3>
+        <div class="value" id="statPending" style="color: #df8a00;">0</div>
+      </div>
+      <div class="stat-card">
+        <h3 id="statApprovedTitle">حجوزات مؤكدة</h3>
+        <div class="value" id="statApproved" style="color: #10b981;">0</div>
+      </div>
+    </div>
+
+    <!-- BOOKINGS DATA TABLE -->
+    <div class="table-container">
+      <table id="bookingsTable">
+        <thead>
+          <tr id="tableHeaders">
+            <th>الاسم</th>
+            <th>رقم التليفون</th>
+            <th>الخدمة المطلوبة</th>
+            <th>التاريخ</th>
+            <th>الوقت</th>
+            <th>أي ملاحظات</th>
+            <th>حالة الحجز</th>
+            <th>تعديل الحالة</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsBody">
+          <!-- Injected via javascript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentAdminLang = localStorage.getItem('adminLang') || 'ar';
+      let currentAdminTheme = localStorage.getItem('sarahTheme') || 'light';
+      let authorizedPin = '';
+
+      // Elements
+      const loginOverlay = document.getElementById('loginOverlay');
+      const loginForm = document.getElementById('loginForm');
+      const pinInput = document.getElementById('pinInput');
+      const loginError = document.getElementById('loginError');
+      const adminContent = document.getElementById('adminContent');
+
+      // Labels translation dictionary
+      const labels = {
+        ar: {
+          loginTitle: '✦ صالون سارة عاطف ✦',
+          loginSubtitle: 'الرجاء إدخال رمز الأمان للوصول لجدول الحجوزات',
+          loginBtn: 'دخول لوحة التحكم',
+          loginError: 'رمز الأمان خاطئ! يرجى إعادة المحاولة',
+          dashTitle: '✦ لوحة تحكم سارة عاطف ✦',
+          dashSub: 'لوحة الإشراف وإدارة الحجوزات الفورية',
+          statTotalTitle: 'إجمالي الحجوزات',
+          statPendingTitle: 'تنتظر المراجعة',
+          statApprovedTitle: 'حجوزات مؤكدة',
+          tName: 'اسم العميلة',
+          tPhone: 'رقم التليفون',
+          tService: 'الخدمة المطلوبة',
+          tDate: 'تاريخ الحجز',
+          tTime: 'وقت الحجز',
+          tNote: 'ملاحظات إضافية',
+          tStatus: 'حالة الحجز',
+          tAction: 'تعديل الحالة',
+          btnConfirm: '✓ تأكيد',
+          btnCancel: '✕ إلغاء',
+          statusPending: 'تحت المراجعة',
+          statusConfirmed: 'مؤكد',
+          statusCanceled: 'ملغي',
+          emptyState: 'لا توجد حجوزات مسجلة بعد في قاعدة البيانات 🌸',
+          toggleBtn: 'English'
+        },
+        en: {
+          loginTitle: '✦ Sarah Atef Salon ✦',
+          loginSubtitle: 'Please enter owner security passcode to view schedule',
+          loginBtn: 'Enter Console',
+          loginError: 'Incorrect passcode PIN. Retry!',
+          dashTitle: '✦ Sarah Atef Supervisor Console ✦',
+          dashSub: 'Live dashboard scheduling and bookings supervisor',
+          statTotalTitle: 'Total Reservations',
+          statPendingTitle: 'Pending Actions',
+          statApprovedTitle: 'Confirmed Bookings',
+          tName: 'Client Name',
+          tPhone: 'Mobile Phone',
+          tService: 'Service',
+          tDate: 'Scheduled Date',
+          tTime: 'Selected Hour',
+          tNote: 'Additional Notes',
+          tStatus: 'Status',
+          tAction: 'Status Control',
+          btnConfirm: '✓ Confirm',
+          btnCancel: '✕ Cancel',
+          statusPending: 'Pending',
+          statusConfirmed: 'Confirmed',
+          statusCanceled: 'Canceled',
+          emptyState: 'No client appointments stored in sqlite yet 🌸',
+          toggleBtn: 'العربية'
+        }
+      };
+
+      // Apply Lang UI translation
+      function translateDashboard(lang) {
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        
+        // Buttons
+        document.getElementById('adminLangToggle').textContent = labels[lang].toggleBtn;
+        
+        // Lock screen text
+        document.getElementById('loginTitle').textContent = labels[lang].loginTitle;
+        document.getElementById('loginSubtitle').textContent = labels[lang].loginSubtitle;
+        document.getElementById('loginBtn').textContent = labels[lang].loginBtn;
+        document.getElementById('loginError').textContent = labels[lang].loginError;
+
+        // Header text
+        document.getElementById('dashTitle').textContent = labels[lang].dashTitle;
+        document.getElementById('dashSub').textContent = labels[lang].dashSub;
+
+        // Statistics
+        document.getElementById('statTotalTitle').textContent = labels[lang].statTotalTitle;
+        document.getElementById('statPendingTitle').textContent = labels[lang].statPendingTitle;
+        document.getElementById('statApprovedTitle').textContent = labels[lang].statApprovedTitle;
+
+        // Table headers mapping
+        const headerRow = document.getElementById('tableHeaders');
+        headerRow.innerHTML = `
+          <th>${labels[lang].tName}</th>
+          <th>${labels[lang].tPhone}</th>
+          <th>${labels[lang].tService}</th>
+          <th>${labels[lang].tDate}</th>
+          <th>${labels[lang].tTime}</th>
+          <th>${labels[lang].tNote}</th>
+          <th>${labels[lang].tStatus}</th>
+          <th>${labels[lang].tAction}</th>
+        `;
+
+        if (authorizedPin) {
+          loadBookings();
+        }
+      }
+
+      // Initialize Theme
+      function applyThemeMode(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      applyThemeMode(currentAdminTheme);
+
+      document.getElementById('adminThemeToggle').addEventListener('click', () => {
+        currentAdminTheme = currentAdminTheme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('sarahTheme', currentAdminTheme);
+        applyThemeMode(currentAdminTheme);
+      });
+
+      // Lang flip Event
+      document.getElementById('adminLangToggle').addEventListener('click', () => {
+        currentAdminLang = currentAdminLang === 'ar' ? 'en' : 'ar';
+        localStorage.setItem('adminLang', currentAdminLang);
+        translateDashboard(currentAdminLang);
+      });
+
+      translateDashboard(currentAdminLang);
+
+      // Submit passcode handler — PIN sent in POST body (never in URL)
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputPin = pinInput.value.trim();
+
+        fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin: inputPin })
+        })
+          .then(async (res) => {
+            if (!res.ok) {
+              const err = await res.json();
+              throw new Error(err.error || 'Unauthorized PIN');
+            }
+            return res.json();
+          })
+          .then((data) => {
+            authorizedPin = inputPin;
+            loginOverlay.style.display = 'none';
+            adminContent.style.display = 'block';
+            loginError.style.display = 'none';
+            renderBookings(data.bookings || []);
+          })
+          .catch((err) => {
+            console.error('Password rejected:', err);
+            loginError.style.display = 'block';
+            pinInput.value = '';
+            pinInput.focus();
+          });
+      });
+
+      // Load bookings from server and render
+      function loadBookings() {
+        if (!authorizedPin) return;
+
+        fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin: authorizedPin })
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            renderBookings(data.bookings || []);
+          })
+          .catch((err) => console.error('Reload Error:', err));
+      }
+
+      // Main Render
+      function renderBookings(list) {
+        const body = document.getElementById('bookingsBody');
+        body.innerHTML = '';
+
+        if (list.length === 0) {
+          body.innerHTML = `
+            <tr>
+              <td colspan="8" class="empty-state">${labels[currentAdminLang].emptyState}</td>
+            </tr>
+          `;
+          updateMetrics([]);
+          return;
+        }
+
+        // Filter and sort: Chronological date order (nearest first)
+        // Bubble sort chronological by date strings (YYYY-MM-DD + Time AM/PM)
+        const sortedList = [...list].sort((a,b) => {
+          const dateComp = new Date(a.date).getTime() - new Date(b.date).getTime();
+          if (dateComp !== 0) return dateComp;
+          // Sort times approximate (PM > AM or simple string sort as hours are formatted consistently)
+          return a.time.localeCompare(b.time);
+        });
+
+        updateMetrics(sortedList);
+
+        sortedList.forEach((booking) => {
+          const tr = document.createElement('tr');
+
+          // Status Badge details
+          let badgeClass = 'badge-pending';
+          let statusText = labels[currentAdminLang].statusPending;
+          if (booking.status === 'confirmed') {
+            badgeClass = 'badge-confirmed';
+            statusText = labels[currentAdminLang].statusConfirmed;
+          } else if (booking.status === 'canceled') {
+            badgeClass = 'badge-canceled';
+            statusText = labels[currentAdminLang].statusCanceled;
+          }
+
+          // Format Date friendly
+          const dateFormatted = new Date(booking.date).toLocaleDateString(currentAdminLang === 'ar' ? 'ar-EG' : 'en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+
+          // Action column buttons state
+          const isFinished = booking.status !== 'pending';
+          const actionButtons = isFinished
+            ? `<div style="color:var(--gray); font-size: 0.75rem;">—</div>`
+            : `
+              <div class="action-btn-group">
+                <button class="btn-action btn-confirm" onclick="updateStatus(${booking.id}, 'confirmed')">${labels[currentAdminLang].btnConfirm}</button>
+                <button class="btn-action btn-cancel" onclick="updateStatus(${booking.id}, 'canceled')">${labels[currentAdminLang].btnCancel}</button>
+              </div>
+            `;
+
+          tr.innerHTML = `
+            <td style="font-weight: bold; color: var(--hot-pink);">${escapeHtml(booking.name)}</td>
+            <td><a href="tel:${booking.phone}" class="phone-link" style="direction: ltr;">${escapeHtml(booking.phone)}</a></td>
+            <td style="font-weight: 500;">${escapeHtml(booking.service)}</td>
+            <td>${dateFormatted}</td>
+            <td style="direction: ltr; font-weight: bold; color: var(--hot-pink-light);">${booking.time}</td>
+            <td style="font-style: italic; color: var(--gray); font-size: 0.82rem;">${escapeHtml(booking.note || '—')}</td>
+            <td><span class="badge ${badgeClass}">${statusText}</span></td>
+            <td>${actionButtons}</td>
+          `;
+
+          body.appendChild(tr);
+        });
+      }
+
+      // Aggregate Counters in Header cards
+      function updateMetrics(list) {
+        document.getElementById('statTotal').textContent = list.length;
+        
+        const pendingCount = list.filter(b => b.status === 'pending').length;
+        const confirmedCount = list.filter(b => b.status === 'confirmed').length;
+
+        document.getElementById('statPending').textContent = pendingCount;
+        document.getElementById('statApproved').textContent = confirmedCount;
+      }
+
+      // Global status updater hook
+      window.updateStatus = function(id, nextStatus) {
+        if (!confirm(currentAdminLang === 'ar' ? 'هل أنت متأكد من تغيير حالة الموعد؟' : 'Are you sure you want to change this reservation status?')) {
+          return;
+        }
+
+        fetch(`/api/bookings/${id}/status`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin: authorizedPin, status: nextStatus })
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              loadBookings();
+            } else {
+              alert('Error updating status');
+            }
+          })
+          .catch((err) => console.error('Status Error Syncing:', err));
+      };
+
+      // String sanitization Helper
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+    });
+  </script>
+</body>
+</html>
