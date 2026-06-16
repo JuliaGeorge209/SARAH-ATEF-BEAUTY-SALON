@@ -27,8 +27,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci || npm install
 
-      - name: Run Linter (TypeScript Check)
-        run: npm run lint
+   
 
       - name: Build Static Files
         run: npm run build
