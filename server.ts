@@ -1,25 +1,21 @@
 import express, { Request, Response } from 'express';
-import path from 'path';
 
-// 1️⃣ هنا المشكلة! تأكدي من استدعاء الـ Router الخاص بكِ من مساره الصحيح:
-// (عدّلي المسار 'path-to-your-salonRouter' حسب المجلد المكتوب فيه الملف عندكِ، مثلاً './routes/salon')
-
+// 1. تعريف السيرفر
 const app = express();
 
+// 2. البرمجيات الوسيطة لقراءة البيانات
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// المسار الرئيسي لحل مشكلة Cannot GET /
+// 3. المسار الرئيسي (يرد مباشرة لتجربة نجاح السيرفر)
 app.get('/', (req: Request, res: Response) => {
-  res.send('SARAH ATEF BEAUTY SALON – Production Server is running successfully!');
+  res.send('SARAH ATEF BEAUTY SALON – Server is 100% online and running perfectly!');
 });
 
-// 2️⃣ هنا يتم استخدام الراوتر بعد عمل import له فوق
-app.use('/server.ts');
-
+// 4. تشغيل السيرفر
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
 
 export default app;
