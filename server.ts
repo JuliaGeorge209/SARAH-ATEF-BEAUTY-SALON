@@ -1,21 +1,14 @@
-import express, { Request, Response } from 'express';
+import { createClient } from '@libsql/client';
+import dotenv from 'dotenv';
 
-// 1. تعريف السيرفر
-const app = express();
+dotenv.config();
 
-// 2. البرمجيات الوسيطة لقراءة البيانات
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// التحقق من وجود الروابط لمنع الـ Crash أثناء التشغيل
+if (!process.env.TURSO_DATABASE_URL) {
+  console.error("Warning: TURSO_DATABASE_URL is missing!");
+}
 
-// 3. المسار الرئيسي (يرد مباشرة لتجربة نجاح السيرفر)
-app.get('/', (req: Request, res: Response) => {
-  res.send('SARAH ATEF BEAUTY SALON – Server is 100% online and running perfectly!');
+export const db = createClient({
+  url: process.env.TURSO_DATABASE_URL || 'libsql://sarah-salon-julianageorge.aws-ap-northeast-1.turso.io',
+  authToken: process.env.TURSO_AUTH_TOKEN,
 });
-
-// 4. تشغيل السيرفر
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-export default app;
