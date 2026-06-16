@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> SARAH ATEF BEAUTY SALON </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">✦ SARAH ATEF ✦</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-text" data-ar="سارة عاطف" data-en="Sarah Atef">سارة عاطف</span>
+        <span class="logo-sub">Nails & Lashes</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+        <li><a href="#about" class="nav-link" data-ar="من نحن" data-en="About">من نحن</a></li>
+        <li><a href="#services" class="nav-link" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+        <li><a href="#prices" class="nav-link" data-ar="الأسعار" data-en="Prices">الأسعار</a></li>
+        <li><a href="#gallery" class="nav-link" data-ar="أعمالنا" data-en="Gallery">أعمالنا</a></li>
+        <li><a href="#contact" class="nav-link" data-ar="تواصلي معنا" data-en="Contact">تواصلي معنا</a></li>
+      </ul>
+      <div class="nav-utils">
+        <button class="util-btn lang-btn" id="langToggle" title="Switch language" aria-label="Toggle language">
+          <span class="lang-ar">EN</span>
+          <span class="lang-en" style="display:none">ع</span>
+        </button>
+        <button class="util-btn theme-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <a href="#contact" class="nav-book-btn" style="text-decoration: none; text-align: center; display: inline-block; line-height: var(--nav-btn-height, 40px);" data-ar="احجزي الآن" data-en="Book Now">احجزي الآن</a>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-video-container">
+      <div class="hero-video-overlay"></div>
+      <div class="hero-video-grid">
+        <div class="mini-video nail-video">
+          <div class="video-shimmer"><img src="./تصميم ربيعي.jpeg" alt=""></div>
+          <div class="video-label" data-ar="✦ أظافر" data-en="✦ Nails">✦ أظافر</div>
+        </div>
+        <div class="mini-video lash-video">
+          <div class="video-shimmer"><img src="./رموش فوليوم.jpeg" alt=""></div>
+          <div class="video-label" data-ar="✦ رموش" data-en="✦ Lashes">✦ رموش</div>
+        </div>
+      </div>
+    </div>
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line" data-text="سارة عاطف" data-ar="سارة عاطف" data-en="Sarah Atef">سارة عاطف</span>
+        <span class="title-divider">——</span>
+        <span class="title-sub">Nails & Lashes Studio</span>
+      </h1>
+      <p class="hero-desc" data-ar="تجربة تجميل استثنائية في قلب مصر — أظافر، رموش، وعناية متكاملة بأعلى معايير الجودة" data-en="An exceptional beauty experience in the heart of Egypt — nails, lashes, and complete care at the highest quality standards">تجربة تجميل استثنائية في قلب مصر — أظافر، رموش، وعناية متكاملة بأعلى معايير الجودة</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn-primary" data-ar="اكتشفي خدماتنا" data-en="Explore Services">اكتشفي خدماتنا</a>
+        <a href="#contact" class="btn-ghost" data-ar="احجزي موعد" data-en="Book Appointment">احجزي موعد</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">5000+</span><span class="stat-label" data-ar="عميلة راضية" data-en="Happy Clients">عميلة راضية</span></div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item"><span class="stat-num">6+</span><span class="stat-label" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</span></div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label" data-ar="منتجات أصلية" data-en="Original Products">منتجات أصلية</span></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-bg-text">SARAH</div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-card-3d">
+            <div class="about-card-front">
+              <div class="about-img-placeholder">
+                <div class="about-icon"><img src="./WhatsApp Image 2026-06-13 at 6.49.45 PM (6).jpeg" alt=""></div>
+                <div class="about-sparkles"><span>✦</span><span>✧</span><span>✦</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="about-badge-float">
+            <span>✦</span>
+            <span data-ar="سارة عاطف" data-en="Sarah Atef">سارة عاطف</span>
+            <span data-ar="متخصصة أظافر ورموش" data-en="Nails & Lashes Specialist">متخصصة أظافر ورموش</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag" data-ar="من نحن" data-en="About Us">من نحن</div>
+          <h2 class="section-title" data-ar="أكثر من مجرد<br/>صالون تجميل" data-en="More than just<br/>a beauty salon">
+            أكثر من مجرد<br/><em data-ar="صالون تجميل" data-en="a beauty salon">صالون تجميل</em>
+          </h2>
+          <p class="about-text" data-ar="مرحباً بكِ في عالم سارة عاطف — المكان الذي نؤمن فيه أن كل تفصيلة تستحق الاهتمام. نقدم خدمات أظافر ورموش احترافية بأعلى معايير النظافة والجودة، مع استخدام أفضل المنتجات الأصلية المعتمدة." data-en="Welcome to the world of Sarah Atef — a place where every detail matters. We provide professional nail and lash services at the highest standards of hygiene and quality, using only the best certified original products.">مرحباً بكِ في عالم سارة عاطف — المكان الذي نؤمن فيه أن كل تفصيلة تستحق الاهتمام. نقدم خدمات أظافر ورموش احترافية بأعلى معايير النظافة والجودة، مع استخدام أفضل المنتجات الأصلية المعتمدة.</p>
+          <p class="about-text" data-ar="خبرتنا تمتد لسنوات في تقديم تجربة تجميل فريدة لكل عميلة، مع الحرص على راحتها وإرضائها بشكل تام." data-en="Our years of experience in delivering a unique beauty experience for every client, with a commitment to their comfort and complete satisfaction.">خبرتنا تمتد لسنوات في تقديم تجربة تجميل فريدة لكل عميلة، مع الحرص على راحتها وإرضائها بشكل تام.</p>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">✦</div>
+              <div>
+                <h4 data-ar="منتجات أصلية ١٠٠٪" data-en="100% Original Products">منتجات أصلية ١٠٪</h4>
+                <p data-ar="نستخدم فقط أفضل العلامات التجارية العالمية" data-en="We use only the best international brands">نستخدم فقط أفضل العلامات التجارية العالمية</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✦</div>
+              <div>
+                <h4 data-ar="نظافة وتعقيم كامل" data-en="Full Sterilization">نظافة وتعقيم كامل</h4>
+                <p data-ar="معايير صحية عالية لضمان سلامتك" data-en="High health standards to ensure your safety">معايير صحية عالية لضمان سلامتك</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✦</div>
+              <div>
+                <h4 data-ar="نتائج طويلة الأمد" data-en="Long-Lasting Results">نتائج طويلة الأمد</h4>
+                <p data-ar="تقنيات متطورة لأفضل نتيجة" data-en="Advanced techniques for the best results">تقنيات متطورة لأفضل نتيجة</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn-primary" data-ar="تواصلي معنا" data-en="Contact Us">تواصلي معنا</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-ar="خدماتنا" data-en="Our Services">خدماتنا</div>
+        <h2 class="section-title" data-ar="كل ما تحتاجينه في مكان واحد" data-en="Everything you need in one place">كل ما تحتاجينه<br/><em data-ar="في مكان واحد" data-en="in one place">في مكان واحد</em></h2>
+        <p class="section-desc" data-ar="خدمات متكاملة للأظافر والرموش بأعلى معايير الجودة" data-en="Complete nail and lash services at the highest quality standards">خدمات متكاملة للأظافر والرموش بأعلى معايير الجودة</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-tilt>
+          <div class="service-card-inner">
+            <div class="service-icon-wrap"><div class="service-icon">💅</div><div class="service-glow"></div></div>
+            <h3 data-ar="جل أظافر" data-en="Gel Polish (Nails)">جل أظافر</h3>
+            <p data-ar="تطبيق جل احترافي بأشكال وألوان متنوعة يدوم طويلاً مع لمعة مثالية" data-en="Professional gel application in various shapes and colors that lasts long with a perfect shine">تطبيق جل احترافي بأشكال وألوان متنوعة يدوم طويلاً مع لمعة مثالية</p>
+            <div class="service-tag" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div>
+          </div>
+        </div>
+        <div class="service-card featured" data-tilt>
+          <div class="service-card-inner">
+            <div class="service-icon-wrap"><div class="service-icon">✨</div><div class="service-glow"></div></div>
+            <h3 data-ar="هارد جل" data-en="Hard Gel (Nails)">هارد جل</h3>
+            <p data-ar="تركيب هارد جل بأشكال مخصصة وتصاميم إبداعية تناسب ذوقك" data-en="Hard gel extensions in custom shapes and creative designs to suit your taste">تركيب هارد جل بأشكال مخصصة وتصاميم إبداعية تناسب ذوقك</p>
+            <div class="service-tag featured-tag" data-ar="مميز" data-en="Featured">مميز</div>
+          </div>
+        </div>
+        <div class="service-card" data-tilt>
+          <div class="service-card-inner">
+            <div class="service-icon-wrap"><div class="service-icon">👁️</div><div class="service-glow"></div></div>
+            <h3 data-ar="رموش كلاسيك" data-en="Classic Lashes">رموش كلاسيك</h3>
+            <p data-ar="رموش طبيعية المظهر تناسب الإطلالة اليومية مع أقصى راحة للعين" data-en="Natural-looking lashes for everyday wear with maximum eye comfort">رموش طبيعية المظهر تناسب الإطلالة اليومية مع أقصى راحة للعين</p>
+            <div class="service-tag" data-ar="خفيف وطبيعي" data-en="Light & Natural">خفيف وطبيعي</div>
+          </div>
+        </div>
+        <div class="service-card" data-tilt>
+          <div class="service-card-inner">
+            <div class="service-icon-wrap"><div class="service-icon">🌸</div><div class="service-glow"></div></div>
+            <h3 data-ar="رموش فوليوم" data-en="Volume Lashes">رموش فوليوم</h3>
+            <p data-ar="حجم مكثف وكثافة عالية لإطلالة درامية ومميزة تلفت الأنظار" data-en="Dense volume and high intensity for a dramatic and distinctive look that turns heads">حجم مكثف وكثافة عالية لإطلالة درامية ومميزة تلفت الأنظار</p>
+            <div class="service-tag" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div>
+          </div>
+        </div>
+        <div class="service-card" data-tilt>
+          <div class="service-card-inner">
+            <div class="service-icon-wrap"><div class="service-icon">🎨</div><div class="service-glow"></div></div>
+            <h3 data-ar="رموش هايبريد" data-en="Hybrid Lashes">رموش هايبريد</h3>
+            <p data-ar="مزيج كلاسيك وفوليوم لمظهر طبيعي مكثف ومثالي" data-en="Mix of classic and volume for a perfectly natural yet full look">مزيج كلاسيك وفوليوم لمظهر طبيعي مكثف ومثالي</p>
+            <div class="service-tag" data-ar="إبداعي" data-en="Creative">إبداعي</div>
+          </div>
+        </div>
+        <div class="service-card" data-tilt>
+          <div class="service-card-inner">
+            <div class="service-icon-wrap"><div class="service-icon">💎</div><div class="service-glow"></div></div>
+            <h3 data-ar="ميكروبليدنج" data-en="Microblading">ميكروبليدنج</h3>
+            <p data-ar="رسم الحواجب بتقنية الميكروبليدنج لحواجب طبيعية وكثيفة تدوم طويلاً" data-en="Eyebrow drawing with microblading technique for natural, dense, long-lasting brows">رسم الحواجب بتقنية الميكروبليدنج لحواجب طبيعية وكثيفة</p>
+            <div class="service-tag" data-ar="عناية كاملة" data-en="Full Care">عناية كاملة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prices" id="prices">
+    <div class="prices-bg"></div>
+    <div class="container">
+      <div class="section-header light">
+        <div class="section-tag light-tag" data-ar="الأسعار" data-en="Pricing">الأسعار</div>
+        <h2 class="section-title light-title" data-ar="أسعار شفافة بلا مفاجآت" data-en="Transparent Prices, No Surprises">أسعار شفافة<br/><em data-ar="بلا مفاجآت" data-en="No Surprises">بلا مفاجآت</em></h2>
+      </div>
+
+      <div class="prices-tabs">
+        <button class="price-tab active" data-tab="nails" data-ar="الأظافر 💅" data-en="Nails 💅">الأظافر 💅</button>
+        <button class="price-tab" data-tab="lashes" data-ar="الرموش 👁️" data-en="Lashes 👁️">الرموش 👁️</button>
+        <button class="price-tab" data-tab="care" data-ar="العناية 🌸" data-en="Care 🌸">العناية 🌸</button>
+      </div>
+
+      <div class="prices-content" id="pricesContent">
+        <div class="price-panel active" id="nailsTab">
+          <div class="price-cards-grid">
+            <div class="price-card">
+              <div class="price-card-top">
+                <h3 data-ar="جل أظافر" data-en="Gel Polish (Nails)">جل أظافر</h3>
+                <p data-ar="تطبيق جل احترافي على الأظافر" data-en="Professional gel application on nails">تطبيق جل احترافي على الأظافر</p>
+              </div>
+              <div class="price-amount">270 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+            <div class="price-card featured-price">
+              <div class="price-badge" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div>
+              <div class="price-card-top">
+                <h3 data-ar="هارد جل أظافر" data-en="Hard Gel (Nails)">هارد جل أظافر</h3>
+                <p data-ar="تركيب هارد جل بشكل احترافي" data-en="Professional hard gel extensions">تركيب هارد جل بشكل احترافي</p>
+              </div>
+              <div class="price-amount">370 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+            <div class="price-card">
+              <div class="price-card-top">
+                <h3 data-ar="تريتمنت أظافر" data-en="Treatment (Nails)">تريتمنت أظافر</h3>
+                <p data-ar="علاج وتقوية للأظافر" data-en="Nail treatment and strengthening">علاج وتقوية للأظافر</p>
+              </div>
+              <div class="price-amount">300 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+            <div class="price-card">
+              <div class="price-card-top">
+                <h3 data-ar="جل أظافر قدم" data-en="Gel Polish (Toenails)">جل أظافر قدم</h3>
+                <p data-ar="تطبيق جل احترافي على أظافر القدم" data-en="Professional gel application on toenails">تطبيق جل احترافي على أظافر القدم</p>
+              </div>
+              <div class="price-amount">230 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" id="lashesTab">
+          <div class="price-cards-grid">
+            <div class="price-card">
+              <div class="price-card-top">
+                <h3 data-ar="رموش كلاسيك" data-en="Classic Lashes">رموش كلاسيك</h3>
+                <p data-ar="شعرة لشعرة — مظهر طبيعي" data-en="One by one — natural look">شعرة لشعرة — مظهر طبيعي</p>
+              </div>
+              <div class="price-amount">350 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+            <div class="price-card featured-price">
+              <div class="price-badge" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div>
+              <div class="price-card-top">
+                <h3 data-ar="رموش هايبريد" data-en="Hybrid Lashes">رموش هايبريد</h3>
+                <p data-ar="مزيج كلاسيك وفوليوم" data-en="Classic and volume mix">مزيج كلاسيك وفوليوم</p>
+              </div>
+              <div class="price-amount">450 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+            <div class="price-card featured-price">
+              <div class="price-badge" data-ar="مميز" data-en="Premium">مميز</div>
+              <div class="price-card-top">
+                <h3 data-ar="رموش فوليوم" data-en="Volume Lashes">رموش فوليوم</h3>
+                <p data-ar="حجم مكثف درامي" data-en="Dramatic dense volume">حجم مكثف درامي</p>
+              </div>
+              <div class="price-amount">500 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" id="careTab">
+          <div class="price-cards-grid">
+            <div class="price-card featured-price">
+              <div class="price-badge" data-ar="حصري" data-en="Exclusive">حصري</div>
+              <div class="price-card-top">
+                <h3 data-ar="ميكروبليدنج" data-en="Microblading">ميكروبليدنج</h3>
+                <p data-ar="رسم حواجب طبيعي دائم" data-en="Permanent natural eyebrow drawing">رسم حواجب طبيعي دائم</p>
+              </div>
+              <div class="price-amount">1250 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prices-note">
+        <span>✦</span>
+        <p data-ar="الأسعار قد تختلف حسب الطول والتصميم المطلوب — تواصلي معنا للاستفسار" data-en="Prices may vary based on length and design — contact us for inquiries">الأسعار قد تختلف حسب الطول والتصميم المطلوب — تواصلي معنا للاستفسار</p>
+        <span>✦</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-ar="أعمالنا" data-en="Our Work">أعمالنا</div>
+        <h2 class="section-title" data-ar="إبداعاتنا تتحدث عنا" data-en="Our Creations Speak for Themselves">إبداعاتنا<br/><em data-ar="تتحدث عنا" data-en="Speak for Themselves">تتحدث عنا</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large">
+          <div class="gallery-placeholder gal-1">
+            <div class="gal-icon"><img src="./اظافر جل فرنسي.jpeg" alt=""></div>
+            <div class="gal-overlay"><span data-ar="أظافر جل فرنسي" data-en="French Gel Nails">أظافر جل فرنسي</span></div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder gal-2">
+            <div class="gal-icon"><img src="./هارد جيل.jpeg" alt=""></div>
+            <div class="gal-overlay"><span data-ar="هارد جل جليتر" data-en="Glitter Hard Gel">هارد جل جليتر</span></div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder gal-3">
+            <div class="gal-icon"><img src="./رموش فوليوم.jpeg" alt=""></div>
+            <div class="gal-overlay"><span data-ar="رموش فوليوم" data-en="Volume Lashes">رموش فوليوم</span></div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder gal-4">
+            <div class="gal-icon"><img src="./نقش يدوى.jpeg" alt=""></div>
+            <div class="gal-overlay"><span data-ar="نقش يدوي" data-en="Hand Art">نقش يدوي</span></div>
+          </div>
+        </div>
+        <div class="gallery-item large">
+          <div class="gallery-placeholder gal-5">
+            <div class="gal-icon"><img src="./تصميم ربيعي.jpeg" alt=""></div>
+            <div class="gal-overlay"><span data-ar="تصميم ربيعي" data-en="Spring Design">تصميم ربيعي</span></div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder gal-6">
+            <div class="gal-icon"><img src="./كريستال و جواهر.jpeg" alt=""></div>
+            <div class="gal-overlay"><span data-ar="كريستال وجواهر" data-en="Crystals & Gems">كريستال وجواهر</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-ar="آراء عميلاتنا" data-en="Client Reviews">آراء عميلاتنا</div>
+        <h2 class="section-title" data-ar="يقولون عنا بصدق" data-en="What They Say About Us">يقولون عنا<br/><em data-ar="بصدق ✦" data-en="Honestly ✦">بصدق ✦</em></h2>
+      </div>
+      <div class="testimonials-track">
+        <div class="testimonials-slider" id="testimonialsSlider">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p data-ar='"سارة محترفة جداً والشغل تحفة! الأظافر فضلت شهر كامل. هرجع تاني أكيد"' data-en='"Sarah is very professional and the work is amazing! The nails lasted a whole month. Def coming back!"'>"سارة محترفة جداً والشغل تحفة! الأظافر فضلت شهر كامل. هرجع تاني أكيد"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" data-ar="ن" data-en="N">ن</div>
+              <div><strong data-ar="نور محمد" data-en="Noor Mohamed">نور محمد</strong><span data-ar="القاهرة" data-en="Cairo">القاهرة</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p data-ar='"الرموش جميلة جداً والشغل دقيق ومريح للعين. أنصح كل بنت تجرب!"' data-en='"The lashes are beautiful, very precise and comfortable for the eyes. Highly recommend!"'>"الرموش جميلة جداً والشغل دقيق ومريح للعين. أنصح كل بنت تجرب!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" data-ar="م" data-en="M">م</div>
+              <div><strong data-ar="مريم أحمد" data-en="Maryam Ahmed">مريم أحمد</strong><span data-ar="مدينة نصر" data-en="Nasr City">مدينة نصر</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p data-ar='"التصميم اللي طلبته طلع أحلى من اللي تخيلته! سارة عارفة شغلها وبتهتم بأدق التفاصيل"' data-en='"The design I requested turned out better than I imagined! Sarah knows her work and cares about details"'>"التصميم اللي طلبته طلع أحلى من اللي تخيلته! سارة عارفة شغلها وبتهتم بأدق التفاصيل"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" data-ar="ف" data-en="F">ف</div>
+              <div><strong data-ar="فريدة علي" data-en="Farida Ali">فريدة علي</strong><span data-ar="مصر الجديدة" data-en="Heliopolis">مصر الجديدة</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn prev-btn" id="prevBtn">‹</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="slider-btn next-btn" id="nextBtn">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-bg"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-tag" data-ar="تواصلي معنا" data-en="Contact Us">تواصلي معنا</div>
+          <h2 class="section-title" data-ar="احجزي موعدك الآن" data-en="Book Your Appointment Now">احجزي موعدك<br/><em data-ar="الآن ✦" data-en="Now ✦">الآن ✦</em></h2>
+          <p data-ar="مستنيينك! تواصلي معنا لحجز موعدك أو للاستفسار عن أي خدمة." data-en="We're waiting for you! Contact us to book your appointment or inquire about any service.">مستنيينك! تواصلي معنا لحجز موعدك أو للاستفسار عن أي خدمة.</p>
+
+          <div class="contact-methods">
+            <a href="https://wa.me/201050362209" class="contact-method whatsapp" target="_blank">
+              <div class="method-icon wa-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <h4 data-ar="واتساب" data-en="WhatsApp">واتساب</h4>
+                <span data-ar="تواصلي معنا مباشرة" data-en="Contact us directly">تواصلي معنا مباشرة</span>
+              </div>
+              <div class="method-arrow">←</div>
+            </a>
+            <a href="tel:+201050362209" class="contact-method phone">
+              <div class="method-icon">📞</div>
+              <div>
+                <h4 data-ar="اتصلي بنا" data-en="Call Us">اتصالي بنا</h4>
+                <span data-ar="من ١٢ ظهرًا حتى ١٠ مساءً" data-en="12 PM to 10 PM">من ١٢ ظهرًا حتى ١٠ مساءً</span>
+              </div>
+              <div class="method-arrow">←</div>
+            </a>
+            <a href="https://www.instagram.com/sarahatef_beautttysalon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="contact-method instagram" target="_blank">
+              <div class="method-icon">📸</div>
+              <div>
+                <h4 data-ar="انستغرام" data-en="Instagram">انستغرام</h4>
+                <span>@sarahatef</span>
+              </div>
+              <div class="method-arrow">←</div>
+            </a>
+          </div>
+
+          <div class="contact-hours">
+            <h4 data-ar="✦ مواعيد العمل" data-en="✦ Working Hours">✦ مواعيد العمل</h4>
+            <div class="hours-grid">
+              <span data-ar="الاثنين – السبت" data-en="MON – SAT">الاثنين – السبت</span>
+              <span data-ar="12 م – 10 م" data-en="12 PM – 10 PM">12 PM – 10 PM  </span>
+              <span data-ar="الأحد" data-en="SUNDAY">الأحد</span>
+              <span data-ar="اجازة اسبوعية" data-en="DAY OFF">اجازة اسبوعية</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="bookingForm">
+            <h3 data-ar="احجزي موعدك ✦" data-en="Book Your Appointment ✦">احجزي موعدك ✦</h3>
+            <p class="form-subtitle" data-ar="سيصلك تأكيد الحجز على واتساب فوراً" data-en="You'll receive booking confirmation on WhatsApp instantly">سيصلك تأكيد الحجز على واتساب فوراً</p>
+            
+            <div class="form-group">
+              <input type="text" id="clientName" required class="form-input" data-placeholder-ar="اسمك الكريم" data-placeholder-en="Your Name" placeholder="اسمك الكريم" />
+            </div>
+            <div class="form-group">
+              <input type="tel" id="clientPhone" required class="form-input" data-placeholder-ar="رقم التليفون" data-placeholder-en="Phone Number" placeholder="رقم التليفون" />
+            </div>
+            <div class="form-group">
+              <select id="clientService" required class="form-input form-select">
+                <option value="" disabled selected data-ar="اختاري الخدمة" data-en="Choose Service">اختاري الخدمة</option>
+                <option value="Gel Polish - 270 EGP" data-ar="جل أظافر - 270 جنيه" data-en="Gel Polish (Nails) - 270 EGP">جل أظافر - 270 جنيه</option>
+                <option value="Nail Treatment - 300 EGP" data-ar="تريتمنت أظافر - 300 جنيه" data-en="Treatment (Nails) - 300 EGP">تريتمنت أظافر - 300 جنيه</option>
+                <option value="Hard Gel - 370 EGP" data-ar="هارد جل أظافر - 370 جنيه" data-en="Hard Gel (Nails) - 370 EGP">هارد جل أظافر - 370 جنيه</option>
+                <option value="Toenails Gel - 230 EGP" data-ar="جل أظافر قدم - 230 جنيه" data-en="Gel Polish (Toenails) - 230 EGP">جل أظافر قدم - 230 جنيه</option>
+                <option value="Classic Lashes - 350 EGP" data-ar="رموش كلاسيك - 350 جنيه" data-en="Classic Lashes - 350 EGP">رموش كلاسيك - 350 جنيه</option>
+                <option value="Hybrid Lashes - 450 EGP" data-ar="رموش هايبريد - 450 جنيه" data-en="Hybrid Lashes - 450 EGP">رموش هايبريد - 450 جنيه</option>
+                <option value="Volume Lashes - 500 EGP" data-ar="رموش فوليوم - 500 جنيه" data-en="Volume Lashes - 500 EGP">رموش فوليوم - 500 جنيه</option>
+                <option value="Microblading - 1250 EGP" data-ar="ميكروبليدنج - 1250 جنيه" data-en="Microblading - 1250 EGP">ميكروبليدنج - 1250 جنيه</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="date" id="clientDate" required class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label id="slotsLabelContainer" style="display:block; margin-bottom:10px; font-size:0.9rem; font-weight:bold; color:var(--text-main);"></label>
+              <div id="slotsGrid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; max-height:160px; overflow-y:auto;"></div>
+              <div id="dateWarning" style="display:none; color: #dc2626; font-size:0.8rem; margin-top:10px; font-weight:bold;"></div>
+            </div>
+
+            <div class="form-group">
+              <textarea id="clientNote" class="form-input form-textarea" rows="3" data-placeholder-ar="ملاحظات إضافية..." data-placeholder-en="Additional notes..." placeholder="ملاحظات إضافية..."></textarea>
+            </div>
+
+            <div id="formAlert" class="form-alert" style="display:none; margin-bottom:15px; padding:10px; border-radius:8px; font-size:0.85rem; text-align:center;"></div>
+
+            <div class="booking-btns">
+              <button type="submit" id="bookBtn" class="btn-primary full-width btn-whatsapp-book">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-left:8px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span data-ar="احجزي عبر واتساب" data-en="Book via WhatsApp">احجزي عبر واتساب</span>
+              </button>
+            </div>
+          </form>
+
+          <div id="ticketTarget" style="display:none; width:100%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo" data-ar="سارة عاطف" data-en="Sarah Atef">سارة عاطف</div>
+            <p data-ar="أظافر ورموش احترافية بأعلى معايير الجودة والأناقة في مصر" data-en="Professional nails and lashes at the highest quality and elegance standards in Egypt">أظافر ورموش احترافية بأعلى معايير الجودة والأناقة في مصر</p>
+            <div class="footer-social">
+              <a href="https://www.instagram.com/sarahatef_beautttysalon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-btn" target="_blank">📸 انستغرام</a>
+              <a href="https://wa.me/201050362209" class="social-btn wa-social" target="_blank">واتساب</a>
+              <a href="#" class="social-btn">🎵 تيك توك</a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
+            <ul>
+              <li><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+              <li><a href="#about" data-ar="من نحن" data-en="About">من نحن</a></li>
+              <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+              <li><a href="#prices" data-ar="الأسعار" data-en="Prices">الأسعار</a></li>
+              <li><a href="#gallery" data-ar="أعمالنا" data-en="Gallery">أعمالنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-services">
+            <h4 data-ar="خدماتنا" data-en="Our Services">خدماتنا</h4>
+            <ul>
+              <li><a href="#services" data-ar="جل أظافر" data-en="Gel Polish (Nails)">جل أظافر</a></li>
+              <li><a href="#services" data-ar="هارد جل" data-en="Hard Gel (Nails)">هارد جل</a></li>
+              <li><a href="#services" data-ar="رموش كلاسيك" data-en="Classic Lashes">رموش كلاسيك</a></li>
+              <li><a href="#services" data-ar="رموش فوليوم" data-en="Volume Lashes">رموش فوليوم</a></li>
+              <li><a href="#services" data-ar="ميكروبليدنج" data-en="Microblading">ميكروبليدنج</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p data-ar="© ٢٠٢٥ سارة عاطف — جميع الحقوق محفوظة ✦" data-en="© 2025 Sarah Atef — All Rights Reserved ✦">© ٢٠٢٥ سارة عاطف — جميع الحقوق محفوظة ✦</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/201050362209" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <script src="./script.js"></script>
+</body>
+</html>
