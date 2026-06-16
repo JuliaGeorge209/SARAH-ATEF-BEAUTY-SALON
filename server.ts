@@ -7,7 +7,14 @@ import express, { Request, Response, NextFunction } from 'express';
 import { createClient } from '@libsql/client';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 
+// إذا كانت الملفات الثابتة في مجلد اسمه public أو build
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Admin.html'));
+});
 dotenv.config();
 
 const app = express();
