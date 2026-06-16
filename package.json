@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "main": "server.ts",
-  "scripts": {
-    "dev": "tsx server.ts",
-    "build": "tsc"
-  },
+"scripts": {
+  "build": "tsc",
+  "lint": "tsc --noEmit"
+},
   "dependencies": {
     "@libsql/client": "^0.14.0",
     "cors": "^2.8.5",
