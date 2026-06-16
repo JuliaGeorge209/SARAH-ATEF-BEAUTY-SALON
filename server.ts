@@ -3,7 +3,6 @@ import path from 'path';
 
 // 1️⃣ هنا المشكلة! تأكدي من استدعاء الـ Router الخاص بكِ من مساره الصحيح:
 // (عدّلي المسار 'path-to-your-salonRouter' حسب المجلد المكتوب فيه الملف عندكِ، مثلاً './routes/salon')
-import salonRouter from './routes/salon'; 
 
 const app = express();
 
@@ -16,7 +15,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // 2️⃣ هنا يتم استخدام الراوتر بعد عمل import له فوق
-app.use('/api/salon', salonRouter);
+app.use('/server.ts');
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
