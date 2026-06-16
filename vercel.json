@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "public": true,
   "functions": {
     "server.ts": {
       "runtime": "vercel-node@latest",
