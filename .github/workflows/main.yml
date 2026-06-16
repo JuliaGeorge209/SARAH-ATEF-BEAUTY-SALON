@@ -22,11 +22,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          # قمنا بإلغاء خاصية الـ cache التلقائي هنا تماماً لمنع الانهيار بسبب الـ package-lock المفقود
 
       - name: Install Dependencies
-        run: npm ci || npm install
-
-   
+        # استبدلنا npm ci بـ npm install العادية لتثبيت الحزم مباشرة من الـ package.json بدون تعقيد
+        run: npm install
 
       - name: Build Static Files
         run: npm run build
